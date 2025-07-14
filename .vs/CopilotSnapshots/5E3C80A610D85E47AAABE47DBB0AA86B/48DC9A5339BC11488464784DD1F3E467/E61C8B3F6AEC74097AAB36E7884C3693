@@ -1,0 +1,26 @@
+﻿using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using user_info.Models;
+
+namespace user_info.Data
+{
+    public class AppDbContext : DbContext
+    {
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
+
+        // Parameterless constructor for EF Core tools
+        public AppDbContext() { }
+
+        public DbSet<Usermodel> Users { get; set; }
+
+        // Configure provider for design-time (migration)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                // يمكنك تعديل الاتصال هنا حسب بياناتك
+                optionsBuilder.UseSqlServer("Server=.;Database=UserInfoDb;Trusted_Connection=True;TrustServerCertificate=True;");
+            }
+        }
+    }
+}

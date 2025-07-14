@@ -1,0 +1,22 @@
+# .NET Core
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.vs/
+# Visual Studio Code
+.vscode/
+# Logs
+*.log
+# OS generated files
+.DS_Store
+Thumbs.db
+# Others
+*.tmp
+*.bak
+# Entity Framework
+Migrations/
+# Ignore secrets
+appsettings.*.Secrets.json
